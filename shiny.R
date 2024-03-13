@@ -20,7 +20,8 @@ options(shiny.maxRequestSize = 30*1024^2)
 # Define UI for data upload app ----
 
 ui <- dashboardPage(skin="purple",
-  dashboardHeader(title = "Regularized DIF"),
+  dashboardHeader(tags$li(img(src = 'logo.jpg', height = '50px'), class = 'dropdown'), title = "Regularized DIF"),
+  #dashboardHeader(title = tags$a(img(src = 'logo.jpg', height = '50px'), "Regularized DIF")),
   dashboardSidebar(sidebarMenu(
     ############################
     # Input: Data file u ----
