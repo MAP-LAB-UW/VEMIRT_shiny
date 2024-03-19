@@ -19,9 +19,10 @@ source('iwgvemm.R')
 options(shiny.maxRequestSize = 30*1024^2)
 # Define UI for data upload app ----
 
-ui <- dashboardPage(skin="purple",
-  dashboardHeader(tags$li(img(src = 'logo.jpg', height = '50px'), class = 'dropdown'), title = "Regularized DIF"),
-  #dashboardHeader(title = tags$a(img(src = 'logo.jpg', height = '50px'), "Regularized DIF")),
+ui <- dashboardPage(skin="black",
+  #dashboardHeader(tags$li(img(src = 'logo.jpg', height = '50px'), class = 'dropdown'), title = "Regularized DIF"),
+  dashboardHeader(tags$li(class = 'dropdown', tags$style('.main-header .logo {height: 53px}')),
+                  title = tags$a(img(src = 'logo.jpg', height = '50px'), "Regularized DIF", style = 'color: black')),
   dashboardSidebar(sidebarMenu(
     ############################
     # Input: Data file u ----
@@ -192,10 +193,10 @@ ui <- dashboardPage(skin="purple",
 
 # Define server logic to read selected file ----
 server <- function(input, output,session) {
-  url <- a("Regularized DIF (GVEM algorithms)", href="https://www.google.com/")
-  output$tab <- renderUI({
-    tagList("Other Functions:", url)
-  })
+  # url <- a("Regularized DIF (GVEM algorithms)", href="https://www.google.com/")
+  # output$tab <- renderUI({
+  #   tagList("Other Functions:", url)
+  # })
   
   # data matrix
   u<-reactive({req(input$file1)
